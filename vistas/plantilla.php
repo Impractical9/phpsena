@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="vistas/librerias/bootstrap.min.css" rel="stylesheet">
     <title>PHP</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="vistas/css/styles.css">
+        <!-- Latest compiled Fontawesome-->
+	<script src="https://kit.fontawesome.com/e632f1f723.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
