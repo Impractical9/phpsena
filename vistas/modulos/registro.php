@@ -95,7 +95,7 @@
                                 echo '<div class="alert alert-success">El usuario ha sido registrado</div>';
                             }
 
-                            ?>
+                    ?>
 
                 
                     <button type="submit" class="btn btn-primary">Enviar</button>

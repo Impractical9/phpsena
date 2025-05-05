@@ -12,10 +12,11 @@
 #Si requerimos el mismo código más de una vez corremos el riesgo de redeclaraciones de variables, funciones o clases. 
 
 require_once "controladores/plantilla.controlador.php";
-
 require_once "controladores/registro.controlador.php";
+require_once "controladores/producto.controlador.php";
 
 require_once "modelos/registro.modelo.php";
+require_once "modelos/producto.modelo.php";
 require_once "modelos/conexion.php";
 
 $plantilla = new ControladorPlantilla();

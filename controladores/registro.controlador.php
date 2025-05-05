@@ -15,7 +15,6 @@ class ControladorRegistro{
                 "telefono" => $_POST["registroTelefono"],
                 "correo" => $_POST["registroEmail"],
                 "clave" => $_POST["registroPassword"]            
-
             );
 
             $respuesta = ModeloRegistro::mdlRegistro($tabla, $datos);
