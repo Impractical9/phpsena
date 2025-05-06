@@ -24,4 +24,26 @@ class ModeloRegistro {
         $stmt->closeCursor();
         return $ok ? "ok" : "error";
     }
+
+
+
+    static public function mdlSeleccionarRegistro($tabla, $item, $valor){
+
+            $sql = "
+                SELECT pk_id_persona AS id, pers_nombre, pers_telefono, pers_correo,  pers_clave, DATE_FORMAT(pers_fecha_registro, '%d/%m/%Y') AS fecha 
+                FROM {$tabla} 
+                WHERE {$item} = :valor 
+                ORDER BY id_registro DESC
+            ";
+
+            $stmt = Conexion::conectar()->prepare($sql);
+            $stmt->bindValue(":valor", $valor, PDO::PARAM_STR);
+            $stmt->execute();
+            $dato = $stmt->fetch(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
+
+            return $dato;
+
+    }
+
 }
