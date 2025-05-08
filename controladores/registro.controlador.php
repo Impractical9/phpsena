@@ -30,29 +30,40 @@ class ControladorRegistro{
     }
 
 
+   /*=============================================
+    Seleccionar Registros
+    =============================================*/
+
+    static public function ctrSeleccionarRegistro(){
+
+        $tabla = "personas";
+
+        $respuesta = ModeloRegistro::mdlSeleccionarRegistro($tabla, null,null);
+
+        return $respuesta;
+    }
+
     /*
     <!-- ========== Metodo ingresar ========== -->    
     */
 
     static public function ctrIngresar(){
 
-        public function ctrIngreso(){
-
-            if(isset($_POST["ingresoCorreo"])){
+         if(isset($_POST["ingresoCorreo"])){
     
-                $tabla = "personas";                
+                $tabla = "personas";
+
                 $item = "pers_correo";
-                
+
                 $valor = $_POST["ingresoCorreo"];
     
                 $respuesta = ModeloRegistro::mdlSeleccionarRegistro($tabla, $item, $valor);
 
-
-
-
     
-                if($respuesta["correo"] == $_POST["ingresoEmail"] && $respuesta["clave"] == $_POST["ingresoPasword"]){ 
+                if($respuesta["pers_correo"] == $_POST["ingresoCorreo"] && $respuesta["pers_clave"] == $_POST["ingresoClave"]){ 
     
+                    session_start();
+
                     $_SESSION["validarIngreso"] = "ok";
     
                     echo '<script>
@@ -61,7 +72,7 @@ class ControladorRegistro{
                         window.history.replaceState( null, null, window.location.href );
                     }
     
-                        window.location = "index.php?pagina=inicio";
+                        window.location = "index.php?modulo=contenido";
     
                     </script>';
     
@@ -81,7 +92,5 @@ class ControladorRegistro{
     
             }
     
-        }
-
     }
 }

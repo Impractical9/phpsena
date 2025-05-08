@@ -26,14 +26,45 @@ class ModeloRegistro {
     }
 
 
-
     static public function mdlSeleccionarRegistro($tabla, $item, $valor){
 
+
+        if ($item === null && $valor === null) {
+
+                // Trae todos los registros, aliasando la PK a 'id'
+                $sql = "
+                SELECT 
+                    pk_id_persona AS id,
+                    pers_nombre,
+                    pers_telefono,
+                    pers_correo,
+                    pers_clave,
+                    DATE_FORMAT(pers_fecha_registro, '%d/%m/%Y') AS fecha 
+                FROM {$tabla} 
+                ORDER BY pk_id_persona DESC
+                ";
+
+                $stmt = Conexion::conectar()->prepare($sql);
+                $stmt->execute();
+                $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $stmt->closeCursor();
+
+                return $datos;
+
+
+        }else{
+
             $sql = "
-                SELECT pk_id_persona AS id, pers_nombre, pers_telefono, pers_correo,  pers_clave, DATE_FORMAT(pers_fecha_registro, '%d/%m/%Y') AS fecha 
+                SELECT 
+                pk_id_persona AS id, 
+                pers_nombre, 
+                pers_telefono, 
+                pers_correo,  
+                pers_clave, 
+                DATE_FORMAT(pers_fecha_registro, '%d/%m/%Y') AS fecha 
                 FROM {$tabla} 
                 WHERE {$item} = :valor 
-                ORDER BY id_registro DESC
+                ORDER BY pk_id_persona DESC
             ";
 
             $stmt = Conexion::conectar()->prepare($sql);
@@ -43,7 +74,7 @@ class ModeloRegistro {
             $stmt->closeCursor();
 
             return $dato;
-
+        }
     }
 
 }

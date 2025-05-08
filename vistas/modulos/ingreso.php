@@ -33,7 +33,7 @@
                                 </span>
                             </div>
             
-                            <input type="password" class="form-control" id="pwd" name="registroPassword">
+                            <input type="password" class="form-control" id="pwd" name="ingresoClave">
             
                         </div>
             
