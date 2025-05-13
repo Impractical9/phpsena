@@ -31,7 +31,7 @@
                             
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <i class="fas fa-user"></i>
+                                    <i class="fa-solid fa-phone"></i>
                                 </span>
                             </div>
             
@@ -70,7 +70,7 @@
                                 </span>
                             </div>
             
-                            <input type="password" class="form-control" id="pwd" name="registroPassword">
+                            <input type="password" class="form-control" id="pwd" name="registroClave">
             
                         </div>
             

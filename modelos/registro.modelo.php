@@ -98,4 +98,25 @@ class ModeloRegistro {
     }
 
 
+    /**
+     * Elimina un registro de la base de datos
+     * @param string $tabla
+     * @param int $id
+     * @return string "ok" si se eliminó, "error" en caso contrario
+     */
+        public static function mdlEliminarRegistro($tabla, $id) {
+            $stmt = Conexion::conectar()->prepare(
+                "DELETE FROM {$tabla} WHERE pk_id_persona = :id"
+            );
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+            if ($stmt->execute()) {
+                return "ok";
+            } else {
+                return "error";
+            }
+        }
+
+
+
 }
