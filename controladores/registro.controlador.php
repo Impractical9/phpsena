@@ -47,6 +47,46 @@ class ControladorRegistro{
     <!-- ========== Metodo ingresar ========== -->    
     */
 
+
+
+    /*=============================================
+    Ingresar Usuario
+    =============================================*/
+
+// public function ctrIngresar() {
+
+//     if (isset($_POST["ingresoCorreo"])) {
+
+//         $tabla = "personas";
+//         $item = "pers_correo";
+//         $valor = $_POST["ingresoCorreo"];
+
+//         $respuesta = ModeloRegistro::mdlSeleccionarRegistro($tabla, $item, $valor);
+
+//         if ($respuesta["pers_correo"] == $_POST["ingresoCorreo"] && $respuesta["pers_correo"] == $_POST["ingresoCorreo"] &&
+//             password_verify($_POST["ingresoClave"], $respuesta["pers_clave"])) {
+
+//             $_SESSION["validarIngreso"] = "ok";
+
+//             echo '<script>
+//                 if (window.history.replaceState) {
+//                     window.history.replaceState(null, null, window.location.href);
+//                 }
+//                 window.location = "index.php?modulo=contenido";
+//             </script>';
+
+//         } else {
+//             echo '<script>
+//                 if (window.history.replaceState) {
+//                     window.history.replaceState(null, null, window.location.href);
+//                 }
+//             </script>';
+
+//             echo '<div class="alert alert-danger">Correo o contraseña incorrectos</div>';
+//         }
+//     }
+// }
+
     static public function ctrIngresar(){
 
          if(isset($_POST["ingresoCorreo"])){
@@ -62,8 +102,6 @@ class ControladorRegistro{
     
                 if($respuesta["pers_correo"] == $_POST["ingresoCorreo"] && $respuesta["pers_clave"] == $_POST["ingresoClave"]){ 
     
-                    session_start();
-
                     $_SESSION["validarIngreso"] = "ok";
     
                     echo '<script>

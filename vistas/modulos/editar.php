@@ -1,18 +1,3 @@
-
-<?php
-
-    session_start();
-
-    if (!isset($_SESSION["validarIngreso"]) || $_SESSION["validarIngreso"] !== "ok") {
-        header("Location: index.php?modulo=ingreso");
-        exit;
-    }
-
-   // Obtenemos todos los registros de la tabla "personas"
-   $registros = ControladorRegistro::ctrSeleccionarRegistro();
-   var_dump($registros);
-?>
-
 <div class="container-fluid">
 		
 	<div class="container py-5">
@@ -41,7 +26,7 @@
 
                             </div>
             
-                        <input type="text" class="form-control" id="nombre" name="actualizarNombre" value="<?php echo $registros[0]["pers_nombre"]; ?>" >
+                        <input type="text" class="form-control" id="nombre" name="actualizarNombre" value="" >
             
                     </div>
                         
@@ -63,7 +48,7 @@
 
                         </div>
             
-                        <input type="text" class="form-control" id="telefono" name="actualizarTelefono" value="<?php echo $registros[0]["pers_telefono"]; ?>">
+                        <input type="text" class="form-control" id="telefono" name="actualizarTelefono" value="">
             
                     </div>
                         
@@ -85,7 +70,7 @@
 
                         </div>
             
-                        <input type="email" class="form-control" id="correo" name="actualizarCorreo" value="<?php echo $registros[0]["pers_correo"]; ?>">
+                        <input type="email" class="form-control" id="correo" name="actualizarCorreo" value="">
                         
                     </div>
                         
@@ -107,7 +92,7 @@
 
                         </div>
             
-                        <input type="password" class="form-control" id="clave" name="actualizarClave" value="<?php echo $registros[0]["pers_correo"]; ?>">
+                        <input type="password" class="form-control" id="clave" name="actualizarClave" value="">
             
                     </div>
             

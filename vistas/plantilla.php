@@ -14,16 +14,30 @@
 
 <body>
 
-
- <?php include "modulos/menu.php"; ?>
-
     <div class="container-fluid">
                 
             <div class="container py-5">
 
-                <?php 
+  
 
-                    #ISSET: isset() Determina si una variable está definida y no es NULL
+                <?php
+
+                    session_start();
+
+                    $modulo = isset($_GET['modulo']) ? $_GET['modulo'] : 'ingreso';
+
+                    if (!isset($_SESSION["validarIngreso"]) || $_SESSION["validarIngreso"] !== "ok") {
+                        
+                        if ($modulo === 'ingreso' || $modulo === 'registro') {
+                            include "modulos/{$modulo}.php";
+                            exit;
+                        }
+
+                        header("Location: index.php?modulo=ingreso");
+                        exit;
+                    }
+
+                    include "modulos/menu.php"; 
 
                     if(isset($_GET["modulo"])){
 
@@ -40,7 +54,6 @@
 
                             include "modulos/error404.php";
                         }
-
 
                     }else{
 
